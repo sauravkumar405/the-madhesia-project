@@ -1,0 +1,22 @@
+{
+  "name": "prateek-http-drill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/prateekmadhesia/prateek-http-drill.git"
+  },
+  "author": "prateekmadhesia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/prateekmadhesia/prateek-http-drill/issues"
+  },
+  "homepage": "https://gitlab.com/prateekmadhesia/prateek-http-drill#readme",
+  "dependencies": {
+    "http": "0.0.1-security"
+  }
+}
