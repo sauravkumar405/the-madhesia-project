@@ -50,7 +50,11 @@ http
       let allCode = http.STATUS_CODES;
 
       if (allCode[value] != undefined) {
-        response.writeHead(value, allCode[value], {
+        // response.writeHead(value, allCode[value], {
+        //   "Content-Type": "text/html",
+        // });
+
+        response.writeHead(200, "OK", {
           "Content-Type": "text/html",
         });
         response.write(`<h1> Message-- ${allCode[value]}</h1>`);
