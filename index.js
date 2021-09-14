@@ -42,7 +42,7 @@ http
     } else if (url == "/uuid") {
       let newId = uuidv4();
       let data = { uuid: newId };
-      
+
       response.writeHead(200, "OK", { "Content-Type": "application/json" });
       response.write(JSON.stringify(data));
       response.end();
@@ -63,7 +63,7 @@ http
     } else if (url == `/delay/${value}`) {
       setTimeout(() => {
         response.writeHead(200, "OK", { "Content-Type": "application/json" });
-        response.write(`<h1>You have been waited for ${value} seconds.</h1>`);
+        response.write(`<h1>You have been waiting for ${value} seconds.</h1>`);
         response.end();
       }, value * 1000);
     } else {
