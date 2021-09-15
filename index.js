@@ -17,8 +17,8 @@ http
       fs.readFile("./martin.html", "utf8", (err, data) => {
         if (err) {
           console.error(err);
-          response.writeHead(404, "Not Found");
-          response.write("Contents you are looking are Not Found");
+          response.writeHead(503, "Service Unavailable");
+          response.write("Retry after sometime");
           response.end();
         } else {
           response.writeHead(200, "OK", { "Content-Type": "text/html" });
@@ -30,8 +30,8 @@ http
       fs.readFile("./secondJson.json", "utf8", (err, data) => {
         if (err) {
           console.error(err);
-          response.writeHead(404, "Not Found");
-          response.write("Contents you are looking are Not Found");
+          response.writeHead(503, "Service Unavailable");
+          response.write("Retry after sometime");
           response.end();
         } else {
           response.writeHead(200, "OK", { "Content-Type": "application/json" });
