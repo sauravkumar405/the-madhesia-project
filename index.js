@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const path = require('path');
 const { v4: uuidv4 } = require("uuid");
 const port = 8000;
 
@@ -14,7 +15,7 @@ http
       response.write("<h1> Welcome to home page </h1>");
       response.end();
     } else if (url == "/html") {
-      fs.readFile("./martin.html", "utf8", (err, data) => {
+      fs.readFile(path.join(__dirname, "quote.html"), "utf8", (err, data) => {
         if (err) {
           console.error(err);
           response.writeHead(503, "Service Unavailable");
@@ -27,7 +28,7 @@ http
         }
       });
     } else if (url == "/json") {
-      fs.readFile("./secondJson.json", "utf8", (err, data) => {
+      fs.readFile(path.join(__dirname, "secondJson.json"), "utf8", (err, data) => {
         if (err) {
           console.error(err);
           response.writeHead(503, "Service Unavailable");
