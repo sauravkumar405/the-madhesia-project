@@ -1,6 +1,6 @@
 const http = require("http");
 const fs = require("fs");
-const path = require('path');
+const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const port = 8000;
 
@@ -28,18 +28,24 @@ http
         }
       });
     } else if (url == "/json") {
-      fs.readFile(path.join(__dirname, "secondJson.json"), "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-          response.writeHead(503, "Service Unavailable");
-          response.write("Retry after sometime");
-          response.end();
-        } else {
-          response.writeHead(200, "OK", { "Content-Type": "application/json" });
-          response.write(data);
-          response.end();
+      fs.readFile(
+        path.join(__dirname, "secondJson.json"),
+        "utf8",
+        (err, data) => {
+          if (err) {
+            console.error(err);
+            response.writeHead(503, "Service Unavailable");
+            response.write("Retry after sometime");
+            response.end();
+          } else {
+            response.writeHead(200, "OK", {
+              "Content-Type": "application/json",
+            });
+            response.write(data);
+            response.end();
+          }
         }
-      });
+      );
     } else if (url == "/uuid") {
       let newId = uuidv4();
       let data = { uuid: newId };
@@ -61,7 +67,9 @@ http
         response.write(`<h1> Message-- ${allCode[value]}</h1>`);
         response.end();
       } else {
-        response.writeHead(422, "Unprocessable entry", { "Content-Type": "text/html" });
+        response.writeHead(422, "Unprocessable entry", {
+          "Content-Type": "text/html",
+        });
         response.write(`<h1> Invalid status code-- ${value} </h1>`);
         response.end();
       }
